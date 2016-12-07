@@ -1,0 +1,130 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>GITS FRONT END 1 WEEK CHALLENGE</title>
+
+	<meta name="author" content="Piotr Kukielka">
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="http://acodemy.io/img/angular-polymer-logo.png"/>
+	<link rel="stylesheet" href="app/css/bootstrap.css">
+	<style>
+	body {
+	  padding-top: 60px;
+	  padding-bottom: 40px;
+	}
+	</style>
+	<link rel="stylesheet" href="app/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="app/css/style.css">
+
+	<script src="app/lib/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body class="bg-gradient" data-spy="scroll" data-target="#navbarMain" data-offset="40">
+  <!-- =================== Navigation bar =================== -->
+  <div id="navbarMain" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand">
+          GITS FRONT END 1 WEEK CHALLENGE
+          <i class="icon-th-large icon-white"></i>
+        </a>
+        <div class="nav-collapse">
+          <ul class="nav">
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Demo section ==================== -->
+  <div ng:app ng:controller="PanelsController" class="container" id="demo">
+    <div class="page-header">
+      <h1>YOU'RE HERE<small></small></h1>
+    </div>
+
+
+
+
+
+<style>
+		#map-canvas {
+				height: 500px;
+				width: 1200px;
+		}
+</style>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpeXFen5-DlcI0KluoT-jEaqbdXSk-hk&libraries=places"></script>
+<script>
+
+		var map;
+		var service;
+
+
+
+
+		function showPosition(location)
+		{
+				console.log(location);
+
+				var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+
+				var mapOption = {
+						center: currentLocation,
+						zoom: 12,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+
+				map = new google.maps.Map(document.getElementById("map-canvas"),
+																	mapOption);
+var image = 'marker.png';
+
+				var marker = new google.maps.Marker({
+						position: currentLocation,
+						map: map,
+						icon: image
+				});
+
+				service = new google.maps.places.PlacesService(map);
+				google.maps.event.addListenerOnce(map, 'bounds_changed', search);
+
+				$('#refresh').click(search);
+		}
+		$(document).ready(function()
+		{
+			navigator.geolocation.getCurrentPosition(showPosition);
+		})
+</script>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+
+</body>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="span6">
+        <div ui:panels model="currentModel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
