@@ -1,0 +1,159 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>GITS FRONT END 1 WEEK CHALLENGE</title>
+
+	<meta name="author" content="Piotr Kukielka">
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="http://acodemy.io/img/angular-polymer-logo.png"/>
+	<link rel="stylesheet" href="app/css/bootstrap.css">
+
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+	<link rel="stylesheet" href="../css/leaflet-sidebar.css" />
+
+
+	<style>
+	body {
+	  padding-top: 0px;
+	  padding-bottom: 40px;
+	}
+	</style>
+	<link rel="stylesheet" href="app/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="app/css/style.css">
+
+	<script src="app/lib/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body class="bg-gradient" data-spy="scroll" data-target="#navbarMain" data-offset="40">
+  <!-- =================== Navigation bar =================== -->
+
+	<div id="sidebar" class="sidebar collapsed">
+			<!-- Nav tabs -->
+			<div class="sidebar-tabs">
+					<ul role="tablist">
+							<li ><a href="../index.html" role="tab"><i class="fa fa-home"></i></a></li>
+							<li><a href="../mapslocate/maps.html" role="tab"><i class="fa fa-map-marker"></i></a></li>
+							<li ><a href="../mapcari/map.html" role="tab"><i class="fa fa-search"></i></a></li>
+					</ul>
+
+					<ul role="tablist">
+
+					</ul>
+			</div>
+
+			<!-- Tab panes -->
+			<div class="sidebar-content">
+					<div class="sidebar-pane" id="home">
+							<h1 class="sidebar-header">
+									sidebar-v2
+									<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+								</div>
+
+					<div class="sidebar-pane" id="profile">
+							<h1 class="sidebar-header">Search Location<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+					</div>
+
+					<div class="sidebar-pane" id="messages">
+							<h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+					</div>
+
+					<div class="sidebar-pane" id="settings">
+							<h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+					</div>
+			</div>
+	</div>
+
+	<div id="map" class="sidebar-map"></div>
+
+	<a href="https://github.com/Turbo87/sidebar-v2/"></a>
+
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="../js/leaflet-sidebar.js"></script>
+
+
+  <!-- ==================== Demo section ==================== -->
+
+
+
+
+
+
+<style>
+		#map-canvas {
+				height: 650px;
+				width: 1360px;
+		}
+</style>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpeXFen5-DlcI0KluoT-jEaqbdXSk-hk&libraries=places"></script>
+<script>
+
+		var map;
+		var service;
+
+
+
+
+		function showPosition(location)
+		{
+				console.log(location);
+
+				var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+
+				var mapOption = {
+						center: currentLocation,
+						zoom: 12,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+
+				map = new google.maps.Map(document.getElementById("map-canvas"),
+																	mapOption);
+var image = 'marker.png';
+
+				var marker = new google.maps.Marker({
+						position: currentLocation,
+						map: map,
+						icon: image
+				});
+
+				service = new google.maps.places.PlacesService(map);
+				google.maps.event.addListenerOnce(map, 'bounds_changed', search);
+
+				$('#refresh').click(search);
+		}
+		$(document).ready(function()
+		{
+			navigator.geolocation.getCurrentPosition(showPosition);
+		})
+</script>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+
+</body>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="span6">
+        <div ui:panels model="currentModel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
